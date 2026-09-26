@@ -66,7 +66,7 @@ export async function GET(req: NextRequest) {
   try {
     const localRoot = process.cwd();
     const safePath = path.normalize(filePath).replace(/^(\.\.[\/\\])+/, "");
-    const localFullPath = path.join(localRoot, safePath);
+    const localFullPath = path.join(/*turbopackIgnore: true*/ localRoot, safePath);
 
     if (fs.existsSync(localFullPath) && fs.statSync(localFullPath).isFile()) {
       const fileContent = fs.readFileSync(localFullPath, "utf-8");
