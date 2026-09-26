@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080b11;
+  --foreground: #f4f4f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* React Flow Overrides */
+.react-flow__attribution {
+  display: none !important;
+}
+
+.react-flow__pane {
+  cursor: grab;
+}
+
+.react-flow__pane:active {
+  cursor: grabbing;
+}
+
+.react-flow__handle {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.9));
+  }
+}
+
+.glow-active {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
